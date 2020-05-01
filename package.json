@@ -1,0 +1,12 @@
+{
+  "name": "sk305-tokens",
+  "version": "1.0.0",
+  "description": "Workshop on Design Tokens and how designers and developers can share the same source of design decision tokens for Sketch symbols and Web Components.",
+  "main": "index.html",
+  "author": "Marcelo Paiva",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/mpaiva/sk305-tokens"
+  },
+  "license": "MIT"
+}
