@@ -1,0 +1,16 @@
+extends layouts/default
+include helpers/mixins
+
+block variables
+	- const title = "Sketch+Fajitas"
+
+block content
+	h1 Hello Sketch+Fajitas
+	p This is a page to test button tokens
+	button(type='submit') Sign up
+
+
+
+block scripts
+	script(src="js/main.js")
+	script(src="js/vendor.js")

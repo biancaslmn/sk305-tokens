@@ -8,3 +8,7 @@ Workshop on Design Tokens and how designers and developers can share the same so
 3. How we can create/import Tokens in Sketch
 4. How to use Puzzle Tokens plugin for creating hundreds of Sketch Styles dynamically.
 5. How to become your developer best friend 🤩
+
+## Getting Started
+
+if you want to use this source code in this repository, please refer to [START HERE file](START-HERE.md) to install everything you need.
