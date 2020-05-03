@@ -46,7 +46,12 @@ Now you're good to go!
 
 #### For Developers
 
-if you want to use this source code in this repository, please refer to the [developers](developers.md) instructions to install everything you need.
+For this workshop, we will be leveraging the following packages for showcasing the web development side:  
+
+- `GULP` [gulpjs.com](https://gulpjs.com/) - a cross-platform, streaming task runner that lets developers automate many development tasks.
+- `PUG` [pugjs.org](https://pugjs.org/) - a simple HTML templating language for coding reusable HTML.
+
+Please refer to the [developers](developers.md) instructions for installing the necessary packages.
 
 
 ## Credits
