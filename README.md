@@ -9,6 +9,45 @@ Workshop on Design Tokens and how designers and developers can share the same so
 4. How to use Puzzle Tokens plugin for creating hundreds of Sketch Styles dynamically.
 5. How to become your developer best friend 🤩
 
-## Getting Started
+## Design Tokens are awesome!
+As teams increase the maturity level of a product, they tend to find ways for becoming more efficient, by minimizing redundancies and abstracting layers towards better productivity.
 
-if you want to use this source code in this repository, please refer to [START HERE file](START-HERE.md) to install everything you need.
+Design Tokens is an abstracted layer from typical stylesheets containing at least colors and typography decisions for the user interface.
+
+### Why Design Tokens?
+A token is the smallest decision anyone can make when designing and developing the user interface of a product.
+
+**These UI decisions must be shared and maintained.**
+
+> **Design Tokens** allow teams to have a **single source of truth** for the presentation layer.
+
+## Tokens as source of truth
+In this workshop, we will design and develop a **button** component  
+
+### Getting Started
+This repository was created with cross-functional teams in mind, where product designers and developers work closely, collaborating on user interaction design and development.    
+
+In order to use the method presented in the workshop, you will need to follow the instructions below:
+
+#### For Designers
+This method requires the **PuzzleTokens** Sketch plugin to specify and apply design tokens to Sketch layers through shared styles.
+
+1. Download and install [PuzzleTokens](https://github.com/ingrammicro/puzzle-tokens/raw/master/PuzzleTokens.sketchplugin.zip)
+2. Download and install [Node.js](https://nodejs.org/en/download/)
+3. Then install `LESS` or `SASS` stylesheets pre-processors. this will allow Sketch to read and process the token file and create the styles dynamically. Use the following **Terminal** commands:
+
+```
+sudo -s
+npm i less -g
+npm i sass -g
+```
+
+Now you're good to go!
+
+#### For Developers
+
+if you want to use this source code in this repository, please refer to the [developers](developers.md) instructions to install everything you need.
+
+
+## Credits
+Thanks to [Andrey Gorokhov](https://github.com/andreyalexeich) for the amazing [Gulp Pug Starter](https://github.com/andreyalexeich/gulp-pug-starter) we used to showcase our web development examples.
