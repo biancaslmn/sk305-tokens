@@ -1,0 +1,374 @@
+// Material Design Palette Sketch Styles Generation
+// Using Puzzle Tokens Sketch plugin and SASS
+// version 1.0.1 by Marcelo Paiva (gh: mpaiva) and Juan Alvarado (gh: jalvarado91)
+
+
+// Required SASS modules:
+@use "sass:map";     // access values in arrays
+@use "sass:color";   // color manipulation
+
+// Dependencies:
+@import "../../styles/helpers/constants";
+@import "../../styles/helpers/functions";
+@import "../../styles/helpers/mixins";
+@import "../../styles/helpers/tokens";
+
+
+//// Base colors
+
+$colors: (
+    primary:             $sk305-primary,
+    secondary:           $sk305-secondary,
+    dark:                $sk305-surface-darker,
+    light:               $sk305-surface-light,
+    danger:              $sk305-danger,
+    warning:             $sk305-warning,
+    success:             $sk305-success
+);
+
+// Fonts
+
+$font-size: (
+    display-lg:         rem-to-px($sk305-text-size-9),
+    display-md:         rem-to-px($sk305-text-size-8),
+    display-sm:         rem-to-px($sk305-text-size-7),
+    display-xs:         rem-to-px($sk305-text-size-5),
+
+    heading-1:          rem-to-px($sk305-text-size-6),
+    heading-2:          rem-to-px($sk305-text-size-5),
+    heading-3:          rem-to-px($sk305-text-size-4),
+    heading-4:          rem-to-px($sk305-text-size-3),
+
+    body:               rem-to-px($sk305-text-size-2),
+    small:              rem-to-px($sk305-text-size-1),
+
+    label-lg:           rem-to-px($sk305-text-size-4),
+    label-md:           rem-to-px($sk305-text-size-3),
+    label-sm:           rem-to-px($sk305-text-size-2),
+    label-xs:           rem-to-px($sk305-text-size-1),
+
+);
+
+$text-align: left, right, center;
+
+$module: 4px;
+
+// Shadows
+
+$shadow: (
+    enormous:   0 $module*8 $module*32 fade-out(map.get($colors, Black), .7),
+    large:      0 $module*4 $module*8 fade-out(map.get($colors, Black), .8),
+    medium:     0 $module $module*2 fade-out(map.get($colors, Black), .9),
+    small:      0 $module/2 $module/4 fade-out(map.get($colors, Black), .95)
+);
+
+
+// Backgrounds
+
+.Backgrounds {
+    // base color styles generation
+    @each $key, $value in $colors {
+        .#{$key} {
+            background-color: $value;
+        }
+    }
+
+    // shades generation
+    .Neutrals {
+        @for $index from 1 through 7 {
+            .Neutral-#{$index} {
+                background-color: tint(map.get($colors, Black), 45% + ($index)*50%/7);
+            }
+        }
+    }
+
+    // Stage background
+    .Stage {
+        background-color: tint(map.get($colors, Black), 98%);
+    }
+}
+
+// Elevated backgrounds w/Shadow
+
+.Backgrounds .Elevated {
+    @each $key, $value in $colors {
+    .#{$key} {
+        background-color: $value;
+        box-shadow: map.get($shadow, large);
+    }
+    }
+    // shades generation
+    .Neutrals {
+        @for $index from 1 through 7 {
+            .Neutral-#{$index} {
+                background-color: tint(map.get($colors, Black), 45% + ($index)*50%/7);
+                box-shadow: map.get($shadow, large);
+            }
+        }
+    }
+}
+
+
+// Texts generation: Size/Alignment/Color
+
+@each $ks,$vs in $font-size {
+
+    .#{$ks}Size {
+        @each $va in $text-align {
+            $ia: index(($text-align), ($va));
+            .#{$va}Aligned {
+                @each $key, $value in $colors {
+                    .#{$key} {
+                        color: $value;
+                        font-size: $vs;
+                        font-family: "Open Sans";
+                        text-align: $va;
+                        vertical-align: middle;
+                        line-height: 1.25;
+                    }
+                }
+
+                // Contrast text colors subset generation
+                .ContrastTo {
+                    //Base colors
+                    @each $key, $value in $colors {
+                        .#{$key} {
+                            color: contrast($value); // getting a color contrast to a given color
+                            font-size: $vs;
+                            text-align: $va;
+                            vertical-align: middle;
+                            line-height: 1.25;
+                        }
+                    }
+                    //Neutral colors
+                    @for $index from 1 through 7 {
+                        .Neutral-#{$index} {
+                            color: contrast(tint(map.get($colors, Black), 45% + ($index)*50%/7));
+                            font-size: $vs;
+                            text-align: $va;
+                            vertical-align: middle;
+                            line-height: 1.25;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Gradient Backgrounds
+
+.Gradients {
+    .Brand-Primary {
+        background-color: linear-gradient(45deg, map.get($colors, Brand), map.get($colors, Primary));
+    }
+    .Brand-Secondary {
+        background-color: linear-gradient(45deg, map.get($colors, Brand), map.get($colors, Secondary));
+    }
+    .Brand-Highlight {
+        background-color: linear-gradient(45deg, map.get($colors, Brand), map.get($colors, Highlight));
+    }
+}
+
+// Shadows Backgrounds
+
+.Shadows .Primary {
+    @each $key, $value in $shadow {
+        .#{$key}Size {
+            background-color: map.get($colors, White);
+            box-shadow: $value;
+        }
+        .Inner {
+            .#{$key}Size {
+                background-color: map.get($colors, White);
+                box-shadow: inset $value;
+            }
+        }
+    }
+
+}
+
+
+//// Symbols styles
+
+#Buttons {
+    #PrimarySmall .Back {
+        border-radius: $module;
+    }
+    #PrimaryMedium .Back {
+        border-radius: $module*2;
+    }
+    #PrimaryLarge .Back {
+        border-radius: $module*4;
+    }
+}
+
+
+// =====================================================================
+
+
+
+
+@import (reference) "tokens/ignite-tokens-commented.less";
+
+// Heading Styles                    
+
+@name: 
+    standard-1, 
+    standard-1-subhead, 
+    standard-2, 
+    standard-3, 
+    standard-4, 
+    small-box;
+
+@theme: on-light, on-dark;
+
+@size: {
+    standard-1:            @usg-text-size-6;        
+    standard-1-subhead:    @usg-text-size-3;        
+    standard-2:            @usg-text-size-5;        
+    standard-3:            @usg-text-size-4;        
+    standard-4:            @usg-text-size-3;        
+    small-box:             @usg-text-size-4;         
+}
+@color-on-dark: {
+    standard-1:            @usg-on-dark-text;        
+    standard-1-subhead:    @usg-on-dark-text;        
+    standard-2:            @usg-on-dark-text;        
+    standard-3:            @usg-on-dark-text;        
+    standard-4:            @usg-on-dark-text;        
+    small-box:             @usg-on-dark-text;         
+}
+@color-on-light: {
+    standard-1:            @usg-on-light-text;        
+    standard-1-subhead:    @usg-on-light-text;        
+    standard-2:            @usg-on-light-text;        
+    standard-3:            @usg-on-light-text;        
+    standard-4:            @usg-on-light-text;        
+    small-box:             @usg-on-light-text;         
+}
+@height: {
+    standard-1:            (unit(@usg-text-size-6)/@font-base) * @usg-line-height-tight;        
+    standard-1-subhead:    (unit(@usg-text-size-3)/@font-base) * @usg-line-height-tight;        
+    standard-2:            (unit(@usg-text-size-5)/@font-base) * @usg-line-height-tight;         
+    standard-3:            (unit(@usg-text-size-4)/@font-base) * @usg-line-height-tight;         
+    standard-4:            (unit(@usg-text-size-3)/@font-base) * @usg-line-height-tight;         
+    small-box:             (unit(@usg-text-size-4)/@font-base) * @usg-line-height-tight;          
+}
+@weight: {
+    standard-1:            @usg-font-weight-medium;        
+    standard-1-subhead:    @usg-font-weight-medium;        
+    standard-2:            @usg-font-weight-medium;        
+    standard-3:            @usg-font-weight-medium;        
+    standard-4:            @usg-font-weight-medium;        
+    small-box:             @usg-font-weight-medium;         
+}
+
+// Alignment options
+@align: left, right, center;
+
+
+
+// Variables
+// name, size, color, line-height, weight
+
+// Folder Structure
+//
+// group
+// └─ theme 
+//    └─ name
+//       └─ align
+
+
+// step-1
+each(@name, .(@vn, @kn, @in) {
+    .@{vn} {
+        color: red;
+    }
+});
+
+// Generating Sketch Styles
+// each(@name, .(@vn, @kn, @in) {  
+//     .@{ks} {
+//         each(@align, .(@va, @ka, @ia) {
+//             .@{va} {
+//                 each(@colors, {
+//                     .@{key} {
+//                         font-family: @usg-font-family; 
+//                         color: @value;
+//                         font-size: (unit(@vs)/@font-base)px; //converting rem to px
+//                         text-align: @va;
+//                         font-weight: @usg-font-weight-medium;
+//                         & when (@ks = subhead-1) { //subhead has different font-weight
+//                             font-weight: @usg-font-weight-medium;
+//                             line-height: (@usg-line-height-tight/@font-base)px;
+//                           }
+//                     } 
+//                 });
+//             }
+//         });
+//     }
+// });
+
+// font-family
+// font-size
+// font-weight
+// letter-spacing
+// text-align
+// line-height
+// color
+// background-color
+
+// Text styles generation
+
+// each(@group, .(@vg, @kg, @ig) {
+//     .@{vg} {
+//         each(@theme, .(@kt, @vt, @it) { 
+//             .@{kt} {
+//                 each(@text-align, .(@va, @ka, @ia) {
+//                     .@{va} {
+//                         each(@heading-size, .(@vhs, @khs, @ihs) { 
+//                             .@{namespace}-@{vg}--@{khs}-on-@{kt} {
+                            
+//                                 font-family: @usg-font-family; 
+//                                 color: @usg-primary;
+//                                 font-size: (unit(@vhs)/@font-base)px; //converting rem to px
+//                                 text-align: @va;
+//                                 font-weight: @usg-font-weight-medium;
+//                                 & when (@khs = standard-1-subhead) { //subhead has different font-weight
+//                                     font-weight: @usg-font-weight-light;
+//                                     line-height: (@usg-line-height-tight/@font-base)px;
+//                                 }
+
+//                             }
+//                         }); 
+
+//                     }
+//                 });        
+//             }
+//         });
+//     }
+// });
+
+// #theme.dark.navbar {
+//     .colors(light) {
+//       primary: purple;
+//     }
+//     .colors(dark) {
+//       primary: black;
+//       secondary: grey;
+//     }
+//   }
+  
+//   .navbar {
+//     @colors: #theme.dark.navbar.colors(dark);
+//     background: @colors[primary];
+//     border: 1px solid @colors[secondary];
+//   }
+//   This would output:
+  
+//   .navbar {
+//     background: black;
+//     border: 1px solid grey;
+//   }

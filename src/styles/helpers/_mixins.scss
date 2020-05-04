@@ -1,0 +1,7 @@
+@import "functions";
+
+//font-size rem version
+@mixin font-size-rem($font-size-rem){
+    font-size: rem-to-px($font-size-rem);
+    font-size: $font-size-rem;
+}

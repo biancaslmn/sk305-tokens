@@ -1,0 +1,65 @@
+// Material Design Palette Sketch Styles Generation
+// Using Puzzle Tokens Sketch plugin and SASS
+// version 1.0.1 by Marcelo Paiva (gh: mpaiva) and Juan Alvarado (gh: jalvarado91)
+
+
+// Required SASS modules:
+@use "sass:map";     // access values in arrays
+@use "sass:color";   // color manipulation
+
+// Dependencies:
+@import "../../../styles/helpers/constants";
+@import "../../../styles/helpers/functions";
+@import "../../../styles/helpers/mixins";
+@import "../../../styles/helpers/tokens";
+
+
+//// Base colors
+
+$colors: (
+    ¹dark:                $sk305-dark,
+    ¹light:               $sk305-light,
+    ²primary:             $sk305-primary,
+    ²secondary:           $sk305-secondary,
+    ³danger:              $sk305-danger,
+    ³warning:             $sk305-warning,
+    ³success:             $sk305-success
+);
+
+// Fonts
+
+$font-family:           $sk305-font-family;
+
+$font-size: (
+    heading-1:          rem-to-px($sk305-text-size-6),
+    heading-2:          rem-to-px($sk305-text-size-5),
+    heading-3:          rem-to-px($sk305-text-size-4),
+    heading-4:          rem-to-px($sk305-text-size-3)
+);
+
+$text-align: left, right, center;
+
+
+// Texts generation: Size/Alignment/Color
+
+@each $ks,$vs in $font-size {
+
+    .#{$ks} {
+        @each $va in $text-align {
+            $ia: index(($text-align), ($va));
+            .#{$va}-aligned {
+                @each $key, $value in $colors {
+                    .#{$key} {
+                        color: $value;
+                        font-size: $vs;
+                        font-family: $font-family;
+                        text-align: $va;
+                        vertical-align: middle;
+                        line-height: 1.25;
+                    }
+                }
+            }
+        }
+    }
+}
+
