@@ -29,11 +29,12 @@ $colors: (
 // Fonts
 
 $font-family:           $sk305-font-family;
+$line-height:           $sk305-line-height-compact;
 
 $font-size: (
-    heading-1:          rem-to-px($sk305-text-size-6),
-    heading-2:          rem-to-px($sk305-text-size-5),
-    heading-3:          rem-to-px($sk305-text-size-4),
+    heading-1:          rem-to-px($sk305-text-size-9),
+    heading-2:          rem-to-px($sk305-text-size-7),
+    heading-3:          rem-to-px($sk305-text-size-5),
     heading-4:          rem-to-px($sk305-text-size-3)
 );
 
@@ -52,10 +53,13 @@ $text-align: left, right, center;
                     .#{$key} {
                         color: $value;
                         font-size: $vs;
+                        font-weight: $sk305-font-weight-black;
                         font-family: $font-family;
                         text-align: $va;
                         vertical-align: middle;
-                        line-height: 1.25;
+                        line-height: ($line-height/1.4);
+                        border-color: transparent;
+
                     }
                 }
             }
