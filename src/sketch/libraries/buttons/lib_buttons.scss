@@ -9,13 +9,13 @@
 @import "../../../styles/helpers/tokens";
 
 
-$btn-text-styles: //$name               $color                  $family                         $size                     $line                           $weight                       $caps           $align  
-                    "sm-onLight"        ($sk305-onLight-text)   ($sk305-font-family)            ($sk305-text-size-2*16)   ($sk305-line-height-reading)    ($sk305-font-weight-light)    (uppercase)     (left),
-                    "md-onLight"        ($sk305-onLight-text)   ($sk305-font-family-condensed)  ($sk305-text-size-4*16)   ($sk305-line-height-reading)    ($sk305-font-weight-light)    (capitalize)    (right),
-                    "lg-onLight"        ($sk305-onLight-text)   ($sk305-font-family)            ($sk305-text-size-7*16)   ($sk305-line-height-reading)    ($sk305-font-weight-black)    (lowercase)     (left),     
-                    "sm-onDark"         ($sk305-onDark-text)    ($sk305-font-family)            ($sk305-text-size-2*16)   ($sk305-line-height-reading)    ($sk305-font-weight-light)    (uppercase)     (left),
-                    "md-onDark"         ($sk305-onDark-text)    ($sk305-font-family-condensed)  ($sk305-text-size-4*16)   ($sk305-line-height-reading)    ($sk305-font-weight-light)    (capitalize)    (right),
-                    "lg-onDark"         ($sk305-onDark-text)    ($sk305-font-family)            ($sk305-text-size-7*16)   ($sk305-line-height-reading)    ($sk305-font-weight-black)    (lowercase)     (left);
+$btn-text-styles: //$name               $color                  $family                         $size                     $line                                         $weight                     $caps           $align  
+                    "sm-atDay"          ($sk305-bodyAtDay)      ($sk305-fontFamily)            ($sk305-fontSize-16*16)   ($sk305-fontSize-10*$sk305-lineHeightTight)    ($sk305-fontWeightLight)    (lowercase)     (center),
+                    "md-atDay"          ($sk305-bodyAtDay)      ($sk305-fontFamilyCondensed)   ($sk305-fontSize-20*16)   ($sk305-fontSize-12*$sk305-lineHeightNormal)   ($sk305-fontWeightMedium)   (capitalize)    (center),
+                    "lg-atDay"          ($sk305-bodyAtDay)      ($sk305-fontFamilySlab)        ($sk305-fontSize-24*16)   ($sk305-fontSize-14*$sk305-lineHeightComfort)  ($sk305-fontWeightBlack)    (uppercase)     (center),     
+                    "sm-atNight"        ($sk305-bodyAtNight)    ($sk305-fontFamily)            ($sk305-fontSize-16*16)   ($sk305-fontSize-10*$sk305-lineHeightTight)    ($sk305-fontWeightLight)    (lowercase)     (center),
+                    "md-atNight"        ($sk305-bodyAtNight)    ($sk305-fontFamilyCondensed)   ($sk305-fontSize-20*16)   ($sk305-fontSize-12*$sk305-lineHeightNormal)   ($sk305-fontWeightMedium)   (capitalize)    (center),
+                    "lg-atNight"        ($sk305-bodyAtNight)    ($sk305-fontFamilySlab)        ($sk305-fontSize-24*16)   ($sk305-fontSize-14*$sk305-lineHeightComfort)  ($sk305-fontWeightBlack)    (uppercase)     (center);
 .btn-label {
     @each $name, $color, $family, $size, $line, $weight, $caps, $align in $btn-text-styles {
         .btn-#{$name} {
@@ -26,6 +26,7 @@ $btn-text-styles: //$name               $color                  $family         
             font-weight: $weight;
             text-transform: $caps;
             text-align: $align;
+            letter-spacing: ($size/($line*4));
             border-width: 0;
             border-color: transparent;
         }
@@ -33,12 +34,12 @@ $btn-text-styles: //$name               $color                  $family         
 }
 
 
-$btn-shape-styles: // $name $fill $border-color $border-width $border-style $box-shadow
-    "success" $sk305-success (darken($sk305-success,20)) 4px solid $sk305-elevation-04,
-    "danger" $sk305-danger (darken($sk305-danger,20)) 4px solid $sk305-elevation-04,
-    "warning" $sk305-warning (darken($sk305-warning,20)) 4px solid $sk305-elevation-04,
-    "dark" $sk305-dark (darken($sk305-dark,20)) 4px solid $sk305-elevation-09,
-    "light" $sk305-light (darken($sk305-light,20)) 4px solid $sk305-elevation-09;
+$btn-shape-styles: //$name      $fill               $border-color                   $border-width   $border-style     $box-shadow
+                    "success"   ($sk305-success)    (darken($sk305-success,20))     (4px)           (solid)           ($sk305-boxShadow-04),
+                    "danger"    ($sk305-danger)     (darken($sk305-danger,20))      (4px)           (solid)           ($sk305-boxShadow-04),
+                    "warning"   ($sk305-warning)    (darken($sk305-warning,20))     (4px)           (solid)           ($sk305-boxShadow-04),
+                    "night"     ($sk305-night)      (darken($sk305-night,20))       (4px)           (solid)           ($sk305-boxShadow-09),
+                    "day"       ($sk305-day)        (darken($sk305-day,20))         (4px)           (solid)           ($sk305-boxShadow-09);
 .btn-bg {
     @each $bg-name, $fill, $border-color, $border-width, $border-style, $box-shadow in $btn-shape-styles {
         .btn-#{$bg-name} {
@@ -50,4 +51,3 @@ $btn-shape-styles: // $name $fill $border-color $border-width $border-style $box
         }
     }
 }
-

@@ -9,42 +9,63 @@
 @import "../blocks/modules/modules";
 
 html {
-    font-family: $sk305-font-family;
+    font-family: $sk305-fontFamily;
     margin: 3rem;
 }
 
 body {
-    font-family: $sk305-font-family-mono;
-    color: $sk305-onLight-text;
-    font-size: $sk305-text-size-5;
+    font-family: $sk305-fontFamilyPair;
+    color: $sk305-bodyAtDay;
+    font-size: $sk305-fontSize-16;
     text-align: center;}
 
 h1 {
-    font-size: $sk305-text-size-9;
-    color: $sk305-dark;
-    font-family: $sk305-font-family;
+    font-size: $sk305-fontSize-60;
+    color: $sk305-bodyAtDay;
+    font-family: $sk305-fontFamily;
     vertical-align: middle;
-    line-height: $sk305-line-height-compact;
+    line-height: $sk305-lineHeightTight;
     border-color: transparent;
+    font-weight: $sk305-fontWeightBlack;
+    letter-spacing: ($sk305-fontSize-60/($sk305-lineHeightNormal*32));
 }
 
 p {
-    font-family: $sk305-font-family-mono;
+    font-family: $sk305-fontFamilyPair;
 }
 
+a {
+  color: $sk305-link;
+}
+
+$btn-color: $sk305-danger;
+
 .btn {
-  font-family: $sk305-font-family;
-  font-size: ($sk305-text-size-7);
-  font-weight: $sk305-font-weight-black;
-  color: $sk305-onDark-text;
-  line-height: $sk305-line-height-reading;
+  font-family: $sk305-fontFamilySlab;
+  font-size: ($sk305-fontSize-24);
+  font-weight: $sk305-fontWeightBlack;
+  color: $sk305-bodyAtNight;
+  line-height: $sk305-lineHeightNormal;
   letter-spacing: 0.5px;
   text-align: center;
-  background: $sk305-dark;
-  border-color: (darken($sk305-dark,20)); 
+  background: $btn-color;
+  border-color: (darken($btn-color,20));
   border-width: 4px;
-  border-style: solid; 
-  box-shadow: $sk305-elevation-09;
+  border-style: solid;
+  box-shadow: $sk305-boxShadow-04;
   border-radius: 8px;
   padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: ($sk305-fontSize-24/($sk305-lineHeightNormal*4));
+}
+
+.btn:hover {
+  background-color: darken($btn-color,10);
+  box-shadow: $sk305-boxShadow-09;
+  color: lighten($sk305-bodyAtNight,50);
+}
+.btn:focus {
+  background-color: darken($btn-color,40);
+  box-shadow: $sk305-boxShadow-01;
+  color: lighten($sk305-bodyAtNight,50);
 }

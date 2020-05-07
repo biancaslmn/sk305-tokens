@@ -1,0 +1,118 @@
+// Material Design Palette Sketch Styles Generation
+// Using Puzzle Tokens Sketch plugin and SASS
+// version 1.0.1 by Marcelo Paiva (gh: mpaiva) and Juan Alvarado (gh: jalvarado91)
+
+
+// Required SASS modules:
+@use "sass:map";     // access values in arrays
+@use "sass:color";   // color manipulation
+
+// Dependencies:
+@import "../../../styles/helpers/constants";
+@import "../../../styles/helpers/functions";
+@import "../../../styles/helpers/mixins";
+@import "../../../styles/helpers/tokens";
+
+
+//// Base colors
+
+$group: content;
+
+$colors: (
+    ¹dark:                $sk305-dark,
+    ¹light:               $sk305-light,
+    ²primary:             $sk305-primary,
+    ²secondary:           $sk305-secondary,
+    ³danger:              $sk305-danger,
+    ³warning:             $sk305-warning,
+    ³success:             $sk305-success
+);
+
+// Fonts
+
+$font-family:           $sk305-fontFamily;
+$line-height:           $sk305-lineHeight-compact;
+
+$font-size: (
+    body:          rem-to-px($sk305-textSize-9),
+    link:          rem-to-px($sk305-text-size-9),
+    label:          rem-to-px($sk305-text-size-7),
+    input:          rem-to-px($sk305-text-size-7),
+    label:
+);
+
+$font-align: left, right, center;
+$font-style: normal, italic;
+
+$font-weight: (
+  light:      $sk305-font-weight-light,
+  regular:    $sk305-font-weight-regular,
+  medium:     $sk305-font-weight-medium,
+  heavy:      $sk305-font-weight-heavy,
+  black:      $sk305-font-weight-black;
+);
+// Text styles generation
+
+each(@group, .(@vg, @kg, @ig) {
+    .@{vg} {
+        each(@theme, .(@kt, @vt, @it) {
+            .@{kt} {
+                each(@text-align, .(@va, @ka, @ia) {
+                    .@{va} {
+                        each(@heading-size, .(@vhs, @khs, @ihs) {
+                            .@{namespace}-@{vg}--@{khs}-on-@{kt} {
+
+                                font-family: @usg-font-family;
+                                color: @usg-primary;
+                                font-size: (unit(@vhs)/@font-base)px; //converting rem to px
+                                text-align: @va;
+
+                                font-weight: @usg-font-weight-medium;
+                                & when (@khs = heading-6) { //subhead has different font-weight
+                                    font-weight: @usg-font-weight-light;
+                                    line-height: (@usg-line-height-tight/@font-base)px;
+                                }
+
+                            }
+                        });
+
+                    }
+                });
+            }
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+// // Texts generation: Size/Alignment/Color
+//
+// @each $ks,$vs in $font-size {
+//
+//     .#{$ks} {
+//         @each $va in $text-align {
+//             $ia: index(($text-align), ($va));
+//             .#{$va}-aligned {
+//                 @each $key, $value in $colors {
+//                     .#{$key} {
+//                         color: $value;
+//                         font-size: $vs;
+//                         font-weight: $sk305-font-weight-black;
+//                         font-family: $font-family;
+//                         text-align: $va;
+//                         vertical-align: middle;
+//                         line-height: ($line-height/1.4);
+//                         border-color: transparent;
+//
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

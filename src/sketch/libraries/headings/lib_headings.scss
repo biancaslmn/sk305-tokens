@@ -17,8 +17,8 @@
 //// Base colors
 
 $colors: (
-    ¹dark:                $sk305-dark,
-    ¹light:               $sk305-light,
+    ¹night:               $sk305-bodyAtNight,
+    ¹day:                 $sk305-bodyAtDay,
     ²primary:             $sk305-primary,
     ²secondary:           $sk305-secondary,
     ³danger:              $sk305-danger,
@@ -28,14 +28,14 @@ $colors: (
 
 // Fonts
 
-$font-family:           $sk305-font-family;
-$line-height:           $sk305-line-height-compact;
+$font-family:           $sk305-fontFamily;
+$line-height:           $sk305-lineHeightTight;
 
 $font-size: (
-    heading-1:          rem-to-px($sk305-text-size-9),
-    heading-2:          rem-to-px($sk305-text-size-7),
-    heading-3:          rem-to-px($sk305-text-size-5),
-    heading-4:          rem-to-px($sk305-text-size-3)
+    heading-1:          rem-to-px($sk305-fontSize-60),
+    heading-2:          rem-to-px($sk305-fontSize-48),
+    heading-3:          rem-to-px($sk305-fontSize-34),
+    heading-4:          rem-to-px($sk305-fontSize-24)
 );
 
 $text-align: left, right, center;
@@ -53,12 +53,13 @@ $text-align: left, right, center;
                     .#{$key} {
                         color: $value;
                         font-size: $vs;
-                        font-weight: $sk305-font-weight-black;
+                        font-weight: $sk305-fontWeightBlack;
                         font-family: $font-family;
                         text-align: $va;
                         vertical-align: middle;
-                        line-height: ($line-height/1.4);
+                        line-height: ($line-height);
                         border-color: transparent;
+                        letter-spacing: ($vs/($line-height*32));
 
                     }
                 }

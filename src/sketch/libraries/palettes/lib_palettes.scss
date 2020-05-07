@@ -8,30 +8,31 @@
 @use "sass:color";   // color manipulation
 
 // Dependencies:
-@import "../../styles/helpers/constants";
-@import "../../styles/helpers/functions";
+@import "../../../styles/helpers/constants";
+@import "../../../styles/helpers/functions";
+@import "../../../styles/helpers/tokens";
 
 // BaseColors - from these colors we will generate the lighter and darker tints.
 $baseColors: (
-  red        : #F44336,
-  pink       : #E91E63,
-  purple     : #9C27B0,
-  deep-purple: #673AB7,
-  indigo     : #3F51B5,
-  blue       : #2196F3,
-  light-blue : #03A9F4,
-  cyan       : #00BCD4,
-  teal       : #009688,
-  green      : #4CAF50,
-  light-green: #8BC34A,
-  lime       : #CDDC39,
-  yellow     : #FFEB3B,
-  amber      : #FFC107,
-  orange     : #ff6600,
-  deep-orange: #FF5722,
-  brown      : #795548,
-  grey       : #9E9E9E,
-  blue-grey  : #607D8B
+  tomato        : $tomato,
+  pink          : $pink,
+  purple        : $purple,
+  grape         : $grape,
+  indigo        : $indigo,
+  blue          : $blue,
+  sky           : $sky,
+  cyan          : $cyan,
+  teal          : $teal,
+  green         : $green,
+  lime          : $lime,
+  lemon         : $lemon,
+  yellow        : $yellow,
+  amber         : $amber,
+  orange        : $orange,
+  pumpkin       : $pumpkin,
+  brown         : $brown,
+  grey          : $grey,
+  midnight      : $midnight
 );
 
 // Generate the the light and dark tint colors for each base color

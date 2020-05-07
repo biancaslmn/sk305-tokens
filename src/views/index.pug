@@ -5,11 +5,8 @@ block variables
 	- const title = "Sketch+Fajitas"
 
 block content
-	h1 Hello Sketch+Fajitas
-	p This is a page to test button tokens
-	button.btn(type='submit') Label
-
-
+	include:markdown-it content/index.md
+	button.btn(type='submit') SIGN UP
 
 block scripts
 	script(src="js/main.js")
