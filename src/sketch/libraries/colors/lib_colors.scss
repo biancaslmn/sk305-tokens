@@ -14,7 +14,15 @@
 
 
 
-$branding: (
+  $branding: (
+    name: branding,
+    tokens: (
+      primary:                      $sk305-primary,
+      primaryLighter:               $sk305-primaryLighter,
+      primaryLight:                 $sk305-primaryLight,
+      primaryDark:                  $sk305-primaryDark,
+      primaryDarker:                $sk305-primaryDarker
+    )
     primary:                      $sk305-primary,
     primaryLighter:               $sk305-primaryLighter,
     primaryLight:                 $sk305-primaryLight,
@@ -23,28 +31,37 @@ $branding: (
   );
 
   $accent: (
-    secondary:                    $sk305-secondary,
-    secondaryLighter:             $sk305-secondaryLighter,
-    secondaryLight:               $sk305-secondaryLight,
-    secondaryDark:                $sk305-secondaryDark,
-    secondaryDarker:              $sk305-secondaryDarker
+    name: accent,
+    tokens: (
+      secondary:                    $sk305-secondary,
+      secondaryLighter:             $sk305-secondaryLighter,
+      secondaryLight:               $sk305-secondaryLight,
+      secondaryDark:                $sk305-secondaryDark,
+      secondaryDarker:              $sk305-secondaryDarker
+    )
   );
 
   $neutral: (
-    paper:                        $sk305-paper,
-    paperLighter:                 $sk305-paperLighter,
-    paperLight:                   $sk305-paperLight,
-    paperDark:                    $sk305-paperDark,
-    paperDarker:                  $sk305-paperDarker
+    name: neutral,
+    tokens: (
+      paper:                        $sk305-paper,
+      paperLighter:                 $sk305-paperLighter,
+      paperLight:                   $sk305-paperLight,
+      paperDark:                    $sk305-paperDark,
+      paperDarker:                  $sk305-paperDarker
+    )
   );
 
   $functional: (
-    success:                      $sk305-success,
-    warning:                      $sk305-warning,
-    danger:                       $sk305-danger,
-    dark:                         $sk305-dark,
-    light:                        $sk305-light,
-    link:                         $sk305-link
+    name: functional,
+    tokens: (
+      success:                      $sk305-success,
+      warning:                      $sk305-warning,
+      danger:                       $sk305-danger,
+      dark:                         $sk305-dark,
+      light:                        $sk305-light,
+      link:                         $sk305-link
+    )
   );
 
   $catColors: $branding, $accent, $neutral, $functional;
@@ -61,8 +78,8 @@ $branding: (
 
 .colors {
   @each $catValue in $catColors {
-    .#{$catValue} { 
-      @include colors(#{$catValue});      
+    .#{map-get($catValue, name)} { 
+      @include colors(#{map-get($catValue, tokens)});      
     }   
   }
 } 
