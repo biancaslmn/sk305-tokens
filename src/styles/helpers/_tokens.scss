@@ -22,18 +22,18 @@ $pumpkin:                    hsl(21, 100%, 43%);
 $brown:                      hsl(16, 25%, 38%);
 $grey:                       hsl(0, 0%, 62%);
 $midnight:                   hsl(200, 20%, 46%);
-$night:                      hsl(0, 0%, 20%);
-$day:                        hsl(0, 0%, 95%);
+$light:                      hsl(0, 0%, 95%);
+$dark:                       hsl(0, 0%, 20%);
 
 // Branding Colors
-$sk305-primary:                $indigo;
+$sk305-primary:                $pink;
 $sk305-primaryLighter:         lighten($sk305-primary, 30);
 $sk305-primaryLight:           lighten($sk305-primary, 10);
 $sk305-primaryDark:            darken($sk305-primary, 10);
 $sk305-primaryDarker:          darken($sk305-primary, 30);
 
 // Accent Colors
-$sk305-secondary:              $orange;
+$sk305-secondary:              $grape;
 $sk305-secondaryLighter:       lighten($sk305-secondary, 30);
 $sk305-secondaryLight:         lighten($sk305-secondary, 10);
 $sk305-secondaryDark:          darken($sk305-secondary, 10);
@@ -50,8 +50,8 @@ $sk305-paperDarker:            darken($sk305-paper, 30);
 $sk305-success:                $teal;
 $sk305-warning:                $amber;
 $sk305-danger:                 $tomato;
-$sk305-night:                  $night;
-$sk305-day:                    $day;
+$sk305-dark:                   $dark;
+$sk305-light:                  $light;
 $sk305-link:                   saturate($tomato, 50%);
 
 // ==========================================
@@ -59,11 +59,11 @@ $sk305-link:                   saturate($tomato, 50%);
 // ==========================================
 
 // Font Color
-$sk305-bodyAtDay:              $sk305-night;
-$sk305-bodyAtNight:            $sk305-day;
+$sk305-bodyAtDay:              $sk305-dark;
+$sk305-bodyAtNight:            $sk305-light;
 
 // Font Typeface
-$sk305-fontFamily:             'Lobster Two';
+$sk305-fontFamily:             'Roboto';
 $sk305-fontFamilyCondensed:    'Roboto Condensed';
 $sk305-fontFamilyMono:         'Roboto Mono';
 
@@ -76,9 +76,12 @@ $sk305-fontFamilySlab:         'Roboto Slab';
 $sk305-fontSize-96:             6rem;
 $sk305-fontSize-60:             3.75rem;
 $sk305-fontSize-48:             3rem;
+$sk305-fontSize-36:             2.25rem;
 $sk305-fontSize-34:             2.125rem;
+$sk305-fontSize-30:             1.875rem;
 $sk305-fontSize-24:             1.5rem;
 $sk305-fontSize-20:             1.25rem;
+$sk305-fontSize-18:             1.125rem;
 $sk305-fontSize-16:             1rem;
 $sk305-fontSize-14:             0.875rem;
 $sk305-fontSize-12:             0.75rem;

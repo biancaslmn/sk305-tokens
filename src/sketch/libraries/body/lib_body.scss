@@ -30,26 +30,25 @@ $colors: (
 
 // Fonts
 
-$font-family:           $sk305-fontFamily;
-$line-height:           $sk305-lineHeight-compact;
+$fontFamily:           $sk305-fontFamily;
+$lineHeight:           $sk305-lineHeight-compact;
 
-$font-size: (
-    body:          rem-to-px($sk305-textSize-9),
-    link:          rem-to-px($sk305-text-size-9),
-    label:          rem-to-px($sk305-text-size-7),
-    input:          rem-to-px($sk305-text-size-7),
-    label:
+$fontSize: (
+    body:          rem-to-px($sk305-fontSize-9),
+    link:          rem-to-px($sk305-fontSize-9),
+    label:          rem-to-px($sk305-fontSize-7),
+    input:          rem-to-px($sk305-fontSize-9);
 );
 
-$font-align: left, right, center;
-$font-style: normal, italic;
+$fontAlign: left, right, center;
+$fontStyle: normal, italic;
 
-$font-weight: (
-  light:      $sk305-font-weight-light,
-  regular:    $sk305-font-weight-regular,
-  medium:     $sk305-font-weight-medium,
-  heavy:      $sk305-font-weight-heavy,
-  black:      $sk305-font-weight-black;
+$fontWeight: (
+  light:      $sk305-fontWeightLight,
+  regular:    $sk305-fontWeightRegular,
+  medium:     $sk305-fontWeightMedium,
+  heavy:      $sk305-fontWeightHeavy,
+  black:      $sk305-fontWeightBlack;
 );
 // Text styles generation
 
@@ -62,15 +61,15 @@ each(@group, .(@vg, @kg, @ig) {
                         each(@heading-size, .(@vhs, @khs, @ihs) {
                             .@{namespace}-@{vg}--@{khs}-on-@{kt} {
 
-                                font-family: @usg-font-family;
-                                color: @usg-primary;
+                                font-family: $sk305-font-family;
+                                color: $sk305-primary;
                                 font-size: (unit(@vhs)/@font-base)px; //converting rem to px
                                 text-align: @va;
 
-                                font-weight: @usg-font-weight-medium;
+                                font-weight: $sk305-font-weight-medium;
                                 & when (@khs = heading-6) { //subhead has different font-weight
-                                    font-weight: @usg-font-weight-light;
-                                    line-height: (@usg-line-height-tight/@font-base)px;
+                                    font-weight: $sk305-font-weight-light;
+                                    line-height: ($sk305-line-height-tight/@font-base)px;
                                 }
 
                             }

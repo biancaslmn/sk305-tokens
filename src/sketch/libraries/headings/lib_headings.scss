@@ -28,43 +28,56 @@ $colors: (
 
 // Fonts
 
-$font-family:           $sk305-fontFamily;
-$line-height:           $sk305-lineHeightTight;
+$fontFamily:           Lobster; // $sk305-fontFamily;
+$lineHeight:           $sk305-lineHeightTight;
 
-$font-size: (
-    heading-1:          rem-to-px($sk305-fontSize-60),
-    heading-2:          rem-to-px($sk305-fontSize-48),
-    heading-3:          rem-to-px($sk305-fontSize-34),
-    heading-4:          rem-to-px($sk305-fontSize-24)
+$formFactor:           desktop;
+
+$fontSize: (
+    heading-1:          rem-to-px($sk305-fontSize-36),
+    heading-2:          rem-to-px($sk305-fontSize-30),
+    heading-3:          rem-to-px($sk305-fontSize-24),
+    heading-4:          rem-to-px($sk305-fontSize-18),
+    heading-5:          rem-to-px($sk305-fontSize-16),
+    heading-6:          rem-to-px($sk305-fontSize-12)
 );
 
-$text-align: left, right, center;
+$textAlign: left, right, center;
 
 
 // Texts generation: Size/Alignment/Color
 
-@each $ks,$vs in $font-size {
+@each $ks,$vs in $fontSize {
 
-    .#{$ks} {
-        @each $va in $text-align {
-            $ia: index(($text-align), ($va));
-            .#{$va}-aligned {
-                @each $key, $value in $colors {
-                    .#{$key} {
-                        color: $value;
-                        font-size: $vs;
-                        font-weight: $sk305-fontWeightBlack;
-                        font-family: $font-family;
-                        text-align: $va;
-                        vertical-align: middle;
-                        line-height: ($line-height);
-                        border-color: transparent;
-                        letter-spacing: ($vs/($line-height*32));
+    .#{$formFactor} {
+        .#{$ks} {
+            @each $va in $textAlign {
+                $ia: index(($textAlign), ($va));
+                .#{$va} {
+                    @each $key, $value in $colors {
+                        .#{$key} {
+                            color: $value;
+                            font-size: $vs;
+                            font-weight: $sk305-fontWeightBlack;
+                            font-family: $fontFamily;
+                            text-align: $va;
+                            vertical-align: middle;
+                            line-height: ($lineHeight);
+                            border-color: transparent;
+                            letter-spacing: ($vs/($lineHeight*64));
+                            text-transform: capitalize;
+                            
+                            // set different style for heading-6 
+                            @if $ks == 'heading-6' { 
+                                text-transform: uppercase;
+                                font-weight: $sk305-fontWeightLight;
+                                font-family: $sk305-fontFamily;
+                            }
 
+                        }
                     }
                 }
             }
         }
     }
 }
-
