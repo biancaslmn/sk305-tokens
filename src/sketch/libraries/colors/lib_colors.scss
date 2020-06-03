@@ -12,44 +12,29 @@
 @import "../../../styles/helpers/functions";
 @import "../../../styles/helpers/tokens";
 
-
-
-  $branding: (
-    name: branding,
-    tokens: (
+  $colors: (
+    branding:(
       primary:                      $sk305-primary,
       primaryLighter:               $sk305-primaryLighter,
       primaryLight:                 $sk305-primaryLight,
       primaryDark:                  $sk305-primaryDark,
       primaryDarker:                $sk305-primaryDarker
-    )
-  );
-
-  $accent: (
-    name: accent,
-    tokens: (
+    ),
+    accent:(
       secondary:                    $sk305-secondary,
       secondaryLighter:             $sk305-secondaryLighter,
       secondaryLight:               $sk305-secondaryLight,
       secondaryDark:                $sk305-secondaryDark,
       secondaryDarker:              $sk305-secondaryDarker
-    )
-  );
-
-  $neutral: (
-    name: neutral,
-    tokens: (
+    ),
+    neutral: (
       paper:                        $sk305-paper,
       paperLighter:                 $sk305-paperLighter,
       paperLight:                   $sk305-paperLight,
       paperDark:                    $sk305-paperDark,
       paperDarker:                  $sk305-paperDarker
-    )
-  );
-
-  $functional: (
-    name: functional,
-    tokens: (
+    ),
+    functional: (
       success:                      $sk305-success,
       warning:                      $sk305-warning,
       danger:                       $sk305-danger,
@@ -59,34 +44,14 @@
     )
   );
 
-  $catColors: $branding, $accent, $neutral, $functional;
-
-  @mixin colors($map) {
-    @each $key, $val in $map {
-      .#{$key} {
-        // Rules
-        background-color: #{$val} ;
-      }
+.colors {
+  @each $cat-key, $cat-value in $colors {
+    @each $color-key, $color-value in $cat-value {
+      .#{$cat-key} {
+        .#{$color-key} {
+            background-color: $color-value;
+        }
+      }  
     }
   }
-
-
-.colors {
-  @each $catValue in $catColors {
-    .#{map-get($catValue, name)} { 
-      @include colors(#{map-get($catValue, tokens)});      
-    }   
-  }
-} 
-
-  
-
-// @mixin classes($map) {
-//   @each $key, $val in $colors {
-//     .#{map-get($val, name)} {
-//       // Rules
-//     }
-//   }
-// }
-
-// @include classes($colors);
+}
