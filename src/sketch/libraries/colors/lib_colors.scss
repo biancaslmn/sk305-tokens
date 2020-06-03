@@ -12,37 +12,37 @@
 @import "../../../styles/helpers/functions";
 @import "../../../styles/helpers/tokens";
 
-  $colors: (
-    branding:(
-      primary:                      $sk305-primary,
-      primaryLighter:               $sk305-primaryLighter,
-      primaryLight:                 $sk305-primaryLight,
-      primaryDark:                  $sk305-primaryDark,
-      primaryDarker:                $sk305-primaryDarker
-    ),
-    accent:(
-      secondary:                    $sk305-secondary,
-      secondaryLighter:             $sk305-secondaryLighter,
-      secondaryLight:               $sk305-secondaryLight,
-      secondaryDark:                $sk305-secondaryDark,
-      secondaryDarker:              $sk305-secondaryDarker
-    ),
-    neutral: (
-      paper:                        $sk305-paper,
-      paperLighter:                 $sk305-paperLighter,
-      paperLight:                   $sk305-paperLight,
-      paperDark:                    $sk305-paperDark,
-      paperDarker:                  $sk305-paperDarker
-    ),
-    functional: (
-      success:                      $sk305-success,
-      warning:                      $sk305-warning,
-      danger:                       $sk305-danger,
-      dark:                         $sk305-dark,
-      light:                        $sk305-light,
-      link:                         $sk305-link
-    )
-  );
+$colors: (
+  branding:(
+    primary:           $sk305-primary,
+    primaryLighter:    $sk305-primaryLighter,
+    primaryLight:      $sk305-primaryLight,
+    primaryDark:       $sk305-primaryDark,
+    primaryDarker:     $sk305-primaryDarker
+  ),
+  accent:(
+    secondary:         $sk305-secondary,
+    secondaryLighter:  $sk305-secondaryLighter,
+    secondaryLight:    $sk305-secondaryLight,
+    secondaryDark:     $sk305-secondaryDark,
+    secondaryDarker:   $sk305-secondaryDarker
+  ),
+  neutral: (
+    paper:             $sk305-paper,
+    paperLighter:      $sk305-paperLighter,
+    paperLight:        $sk305-paperLight,
+    paperDark:         $sk305-paperDark,
+    paperDarker:       $sk305-paperDarker
+  ),
+  functional: (
+    success:           $sk305-success,
+    warning:           $sk305-warning,
+    danger:            $sk305-danger,
+    dark:              $sk305-dark,
+    light:             $sk305-light,
+    link:              $sk305-link
+  )
+);
 
 .colors {
   @each $cat-key, $cat-value in $colors {
