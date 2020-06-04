@@ -25,14 +25,14 @@ $midnight:                   hsl(200, 20%, 46%);
 $light:                      hsl(0, 0%, 95%);
 $dark:                       hsl(0, 0%, 20%);
 
-// Branding Colors
-$sk305-primary:                $amber;
+// Primary Colors
+$sk305-primary:                $indigo;
 $sk305-primaryLighter:         lighten($sk305-primary, 30);
 $sk305-primaryLight:           lighten($sk305-primary, 10);
 $sk305-primaryDark:            darken($sk305-primary, 10);
 $sk305-primaryDarker:          darken($sk305-primary, 30);
 
-// Accent Colors
+// Secondary Colors
 $sk305-secondary:              $grape;
 $sk305-secondaryLighter:       lighten($sk305-secondary, 30);
 $sk305-secondaryLight:         lighten($sk305-secondary, 10);
@@ -41,7 +41,7 @@ $sk305-secondaryDarker:        darken($sk305-secondary, 30);
 
 // Neutral Colors
 $sk305-paper:                  $midnight;
-$sk305-paperLighter:           lighten($sk305-paper, 30);
+$sk305-paperLighter:           lighten($sk305-paper, 50);
 $sk305-paperLight:             lighten($sk305-paper, 40);
 $sk305-paperDark:              darken($sk305-paper, 10);
 $sk305-paperDarker:            darken($sk305-paper, 30);
@@ -52,7 +52,9 @@ $sk305-warning:                $amber;
 $sk305-danger:                 $tomato;
 $sk305-dark:                   $dark;
 $sk305-light:                  $light;
-$sk305-link:                   saturate($tomato, 50%);
+$sk305-link:                   saturate($indigo, 50%);
+$sk305-linkAtNight:             saturate($yellow, 50%);
+
 
 // ==========================================
 // TYPOGRAPHY
@@ -67,6 +69,7 @@ $sk305-fontFamily:             'Roboto';
 $sk305-fontFamilyCondensed:    'Roboto Condensed';
 $sk305-fontFamilyMono:         'Roboto Mono';
 
+// Font Pairing
 $sk305-fontFamilyPair:         'Roboto Mono';
 $sk305-fontFamilySans:         'Noto Sans';
 $sk305-fontFamilySerif:        'Georgia';
@@ -92,9 +95,15 @@ $sk305-lineHeightTight:         1.25;
 $sk305-lineHeightNormal:        1.5;
 $sk305-lineHeightComfort:       1.75;
 
+// Font Letter Spacing
+$sk305-letterSpacingTight:      -0.4;
+$sk305-letterSpacingNormal:     -0.2;
+$sk305-letterSpacingComfort:    1.0;
+
 // Font Weight
 $sk305-fontWeightLight:         300;
 $sk305-fontWeightRegular:       400;
+$sk305-fontWeightBold:          bold;
 $sk305-fontWeightMedium:        500;
 $sk305-fontWeightHeavy:         700;
 $sk305-fontWeightBlack:         900;

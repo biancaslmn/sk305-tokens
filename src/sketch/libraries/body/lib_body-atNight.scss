@@ -18,7 +18,7 @@ $body-fontSize:        rem-to-px($sk305-fontSize-16);
 
 $body: (
   paragraph:(
-    color:             $sk305-bodyAtDay,
+    color:             $sk305-bodyAtNight,
     font-family:       $body-fontFamily,
     font-size:         $body-fontSize,
     font-weight:       $sk305-fontWeightRegular,
@@ -26,7 +26,7 @@ $body: (
     letter-spacing:    $sk305-letterSpacingNormal
   ),
   link:(
-    color:             $sk305-link,
+    color:             $sk305-linkAtNight,
     font-family:       $body-fontFamily,
     font-size:         $body-fontSize,
     font-weight:       $sk305-fontWeightBold,
@@ -35,7 +35,7 @@ $body: (
     text-decoration:   "none"
   ),
   linkHover: (
-    color:             darken($sk305-link, 10),
+    color:             darken($sk305-linkAtNight, 10),
     font-family:       $body-fontFamily,
     font-size:         $body-fontSize, 
     font-weight:       $sk305-fontWeightBold,
@@ -44,7 +44,7 @@ $body: (
     text-decoration:   "underline"
   ),
   linkVisited: (
-    color:             lighten(desaturate($sk305-link, 40), 20),
+    color:             lighten(desaturate($sk305-linkAtNight, 40), 20),
     font-family:       $body-fontFamily,
     font-size:         $body-fontSize, 
     font-weight:       $sk305-fontWeightBold,
@@ -53,7 +53,7 @@ $body: (
     text-decoration:   "underline"
   ),
   code: (
-    color:             $sk305-bodyAtDay,
+    color:             $sk305-bodyAtNight,
     font-family:       #{$sk305-fontFamilyMono},
     font-size:         $body-fontSize,
     font-weight:       $sk305-fontWeightBold,
@@ -63,7 +63,7 @@ $body: (
 
 );
 
-.body {
+.body-atNight {
   @each $cat-key, $cat-value in $body {
     .#{$cat-key} {
         @each $body-key, $body-value in $cat-value {     

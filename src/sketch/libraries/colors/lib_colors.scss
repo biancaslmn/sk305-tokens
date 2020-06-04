@@ -13,14 +13,14 @@
 @import "../../../styles/helpers/tokens";
 
 $colors: (
-  branding:(
+  primary:(
     primary:           $sk305-primary,
     primaryLighter:    $sk305-primaryLighter,
     primaryLight:      $sk305-primaryLight,
     primaryDark:       $sk305-primaryDark,
     primaryDarker:     $sk305-primaryDarker
   ),
-  accent:(
+  secondary:(
     secondary:         $sk305-secondary,
     secondaryLighter:  $sk305-secondaryLighter,
     secondaryLight:    $sk305-secondaryLight,
